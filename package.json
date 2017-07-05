@@ -1,11 +1,10 @@
 {
-  "name": "testcafe-reporter-teamcity",
+  "name": "@npmsoluto/testcafe-reporter-teamcity",
   "version": "1.0.0",
   "description": "teamcity TestCafe reporter plugin.",
   "repository": "https://github.com/soluto/testcafe-reporter-teamcity",
   "author": {
-    "name": "Nir Hadassi",
-    "email": "nir@soluto.com",
+    "name": "Soluto",
     "url": "https://github.com/soluto"
   },
   "main": "lib/index",
@@ -14,8 +13,7 @@
   ],
   "scripts": {
     "test": "gulp test",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "publish-please": "publish-please"
   },
   "keywords": [
     "testcafe",
