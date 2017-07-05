@@ -27,7 +27,7 @@ export default function () {
         },
 
         reportTaskDone (endTime, passed, warnings) {
-            // console.log('\nreportTaskDone\n', endTime, passed, warnings);
+            console.log(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tWarnings:\n\t${warnings.join('\n')}`);
         },
 
         _renderErrors (errs) {
