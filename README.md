@@ -3,9 +3,8 @@
 
 This is the **teamcity** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
-<p align="center">
-    <img src="https://raw.github.com/soluto/testcafe-reporter-teamcity/master/media/preview.png" alt="preview" />
-</p>
+![](media/preview.png)
+
 
 ## Install
 
