@@ -1,21 +1,31 @@
 export default function () {
     return {
         noColors: true,
+        failed: 0,
+        skipped: 0,
+        lastSuite: null,
 
         reportTaskStart (startTime, userAgents, testCount) {
-            // console.log('\nreportTaskStart\n', startTime, userAgents, testCount);
+            console.log('\n\nreportTaskStart\n', startTime, userAgents, testCount, '\n\n');
         },
 
         reportFixtureStart (name) {
+            if (this.lastSuite) {
+                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuite) + '\']');
+            }
             console.log('##teamcity[testSuiteStarted name=\'' + escape(name) + '\']');
+            this.lastSuite = name;
         },
 
         reportTestDone (name, testRunInfo) {
+            console.log('##teamcity[testStarted name=\'' + escape(name) + '\']');
             if (testRunInfo.skipped) {
+                this.skipped++;
                 console.log('##teamcity[testIgnored name=\'' + escape(name) + '\' message=\'skipped\']');
                 return;
             }
             if (testRunInfo.errs && testRunInfo.errs.length > 0) {
+                this.failed++;
                 console.log('##teamcity[testFailed name=\'' + escape(name) +
                     '\' message=\'' + 'Test Failed' +
                     '\' captureStandardOutput=\'true\' ' +
@@ -27,7 +37,7 @@ export default function () {
         },
 
         reportTaskDone (endTime, passed, warnings) {
-            console.log(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tWarnings:\n\t${warnings.join('\n')}`);
+            console.log(escape(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`));
         },
 
         _renderErrors (errs) {
