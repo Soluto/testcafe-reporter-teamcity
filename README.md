@@ -4,7 +4,7 @@
 This is the **teamcity** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
 <p align="center">
-    <img src="http://i.imgur.com/7ozfb4Q.png" alt="preview" />
+    <img src="http://i.imgur.com/7ozfb4Q.png" alt="preview" border="border:2px solid black;"/>
 </p>
 
 ## Install

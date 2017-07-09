@@ -3,18 +3,18 @@ export default function () {
         noColors: true,
         failed: 0,
         skipped: 0,
-        lastSuite: null,
+        lastSuiteName: null,
 
         reportTaskStart (startTime, userAgents, testCount) {
-            console.log('\n\nreportTaskStart\n', startTime, userAgents, testCount, '\n\n');
+            console.log(escape(`Starting Test Run!\n\tStart Time: ${startTime}\n\tUser Agents: ${userAgents}\n\tTest Count: ${testCount}\n`));
         },
 
         reportFixtureStart (name) {
-            if (this.lastSuite) {
-                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuite) + '\']');
+            if (this.lastSuiteName) {
+                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']');
             }
             console.log('##teamcity[testSuiteStarted name=\'' + escape(name) + '\']');
-            this.lastSuite = name;
+            this.lastSuiteName = name;
         },
 
         reportTestDone (name, testRunInfo) {
@@ -29,7 +29,7 @@ export default function () {
                 console.log('##teamcity[testFailed name=\'' + escape(name) +
                     '\' message=\'' + 'Test Failed' +
                     '\' captureStandardOutput=\'true\' ' +
-                    'details=\'' + escape(this._renderErrors(testRunInfo.errs)) + '\']');
+                    'details=\'' + escape(this.renderErrors(testRunInfo.errs)) + '\']');
                 return;
 
             }
@@ -40,17 +40,13 @@ export default function () {
             console.log(escape(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`));
         },
 
-        _renderErrors (errs) {
-            let errors = '';
-            errs.forEach((err) => {
-                errors += '\n' + this.formatError(err, '') + '\n\n';
-            });
-            return errors;
+        renderErrors (errors) {
+            return errors.reduce((string, err) => string + '\n' + this.formatError(err, '') + '\n\n', "");
         },
     };
 }
 
-function escape (str) {
+const escape = (str) => {
     if (!str) return '';
     return str
         .toString()
@@ -64,4 +60,4 @@ function escape (str) {
         .replace(/\u2028/g, '|l')
         .replace(/\u2029/g, '|p')
         .replace(/'/g, '|\'');
-}
+};
