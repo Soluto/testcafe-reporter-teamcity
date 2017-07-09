@@ -6,7 +6,7 @@ export default function () {
         lastSuiteName: null,
 
         reportTaskStart (startTime, userAgents, testCount) {
-            console.log(escape(`Starting Test Run!\n\tStart Time: ${startTime}\n\tUser Agents: ${userAgents}\n\tTest Count: ${testCount}\n`));
+            console.log(`Starting Test Run!\n\tStart Time: ${startTime}\n\tUser Agents: ${userAgents}\n\tTest Count: ${testCount}\n`);
         },
 
         reportFixtureStart (name) {
@@ -37,7 +37,7 @@ export default function () {
         },
 
         reportTaskDone (endTime, passed, warnings) {
-            console.log(escape(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`));
+            console.log(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`);
         },
 
         renderErrors (errors) {
