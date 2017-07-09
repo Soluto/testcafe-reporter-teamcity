@@ -37,6 +37,9 @@ export default function () {
         },
 
         reportTaskDone (endTime, passed, warnings) {
+            if (this.lastSuiteName) {
+                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']');
+            }
             console.log(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`);
         },
 
