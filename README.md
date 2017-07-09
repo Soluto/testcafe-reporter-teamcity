@@ -34,4 +34,4 @@ testCafe
 ```
 
 ## Author
-Soluto (https://github.com/soluto)
+Soluto
