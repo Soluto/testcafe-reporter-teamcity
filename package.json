@@ -1,6 +1,6 @@
 {
   "name": "testcafe-reporter-teamcity",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "teamcity TestCafe reporter plugin.",
   "repository": "https://github.com/soluto/testcafe-reporter-teamcity",
   "author": {
