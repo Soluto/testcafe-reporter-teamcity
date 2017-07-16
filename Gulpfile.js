@@ -19,6 +19,15 @@ gulp.task('build', ['clean', 'lint'], function () {
         .pipe(gulp.dest('lib'));
 });
 
+gulp.task('test', ['build'], function () {
+    return gulp
+        .src('test/**.js')
+        .pipe(mocha({
+            ui:       'bdd',
+            reporter: 'spec',
+            timeout:  typeof v8debug === 'undefined' ? 2000 : Infinity // NOTE: disable timeouts in debug
+        }));
+});
 
 gulp.task('preview', ['build'], function () {
     var buildReporterPlugin = require('testcafe').embeddingUtils.buildReporterPlugin;

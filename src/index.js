@@ -6,45 +6,61 @@ export default function () {
         lastSuiteName: null,
 
         reportTaskStart (startTime, userAgents, testCount) {
-            console.log(`Starting Test Run!\n\tStart Time: ${startTime}\n\tUser Agents: ${userAgents}\n\tTest Count: ${testCount}\n`);
+            this.write('Starting test run!')
+                .newline()
+                .setIndent(4)
+                .write(`Start Time: ${startTime}`)
+                .newline()
+                .write(`User Agents: ${userAgents}`)
+                .newline()
+                .write(`Test Count: ${testCount}`)
+                .newline()
+                .setIndent(0);
         },
 
         reportFixtureStart (name) {
             if (this.lastSuiteName) {
-                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']');
+                this.write('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']').newline();
             }
-            console.log('##teamcity[testSuiteStarted name=\'' + escape(name) + '\']');
+            this.write('##teamcity[testSuiteStarted name=\'' + escape(name) + '\']').newline();
             this.lastSuiteName = name;
         },
 
         reportTestDone (name, testRunInfo) {
-            console.log('##teamcity[testStarted name=\'' + escape(name) + '\']');
+            this.write('##teamcity[testStarted name=\'' + escape(name) + '\']').newline();
             if (testRunInfo.skipped) {
                 this.skipped++;
-                console.log('##teamcity[testIgnored name=\'' + escape(name) + '\' message=\'skipped\']');
+                this.write('##teamcity[testIgnored name=\'' + escape(name) + '\' message=\'skipped\']').newline();
                 return;
             }
             if (testRunInfo.errs && testRunInfo.errs.length > 0) {
                 this.failed++;
-                console.log('##teamcity[testFailed name=\'' + escape(name) +
+                this.write('##teamcity[testFailed name=\'' + escape(name) +
                     '\' message=\'' + 'Test Failed' +
                     '\' captureStandardOutput=\'true\' ' +
-                    'details=\'' + escape(this.renderErrors(testRunInfo.errs)) + '\']');
+                    'details=\'' + escape(this.renderErrors(testRunInfo.errs)) + '\']').newline();
                 return;
 
             }
-            console.log('##teamcity[testFinished name=\'' + escape(name) + '\' duration=\'' + testRunInfo.durationMs + '\']');
+            this.write('##teamcity[testFinished name=\'' + escape(name) + '\' duration=\'' + testRunInfo.durationMs + '\']').newline();
         },
 
         reportTaskDone (endTime, passed, warnings) {
             if (this.lastSuiteName) {
-                console.log('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']');
+                this.write('##teamcity[testSuiteFinished name=\'' + escape(this.lastSuiteName) + '\']').newline();
             }
-            console.log(`\nTest Run Completed:\n\tEnd Time: ${endTime}\n\tTests Passed: ${passed}\n\tTests Failed: ${this.failed}\n\tTests Skipped: ${this.skipped}\n\tWarnings:\n\t\t${warnings.join('\n\t\t')}`);
+            this.write('Test Run Completed:').newline()
+                .setIndent(4)
+                .write(`End Time: ${endTime}`).newline()
+                .write(`Tests Passed: ${passed}`).newline()
+                .write(`Tests Failed: ${this.failed}`).newline()
+                .write(`Tests Skipped: ${this.skipped}`).newline()
+                .write(`Warnings:\n ${warnings.join('\n\t\t')}`).newline()
+                .setIndent(0);
         },
 
         renderErrors (errors) {
-            return errors.reduce((string, err) => string + '\n' + this.formatError(err, '') + '\n\n', "");
+            return errors.reduce((string, err) => string + '|n' + this.formatError(err, '') + '\n\n', "");
         },
     };
 }

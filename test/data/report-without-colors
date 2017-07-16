@@ -1,0 +1,37 @@
+Starting test run!
+    Start Time: Thu Jan 01 1970 02:00:00 GMT+0200 (IST)
+    User Agents: Chrome 41.0.2227 / Mac OS X 10.10.1,Firefox 47 / Mac OS X 10.10.1
+    Test Count: 6
+##teamcity[testSuiteStarted name='First fixture']
+##teamcity[testStarted name='First test in first fixture']
+##teamcity[testFinished name='First test in first fixture' duration='74000']
+##teamcity[testStarted name='Second test in first fixture']
+##teamcity[testFailed name='Second test in first fixture' message='Test Failed' captureStandardOutput='true' details='||nError on page "http://example.org":|n|nSome error|n|nBrowser: Chrome 41.0.2227 / Mac OS X 10.10.1|nScreenshot: /screenshots/1445437598847/errors|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n||nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
+##teamcity[testStarted name='Third test in first fixture']
+##teamcity[testFinished name='Third test in first fixture' duration='74000']
+##teamcity[testSuiteFinished name='First fixture']
+##teamcity[testSuiteStarted name='Second fixture']
+##teamcity[testStarted name='First test in second fixture']
+##teamcity[testFinished name='First test in second fixture' duration='74000']
+##teamcity[testStarted name='Second test in second fixture']
+##teamcity[testFinished name='Second test in second fixture' duration='74000']
+##teamcity[testStarted name='Third test in second fixture']
+##teamcity[testFinished name='Third test in second fixture' duration='0']
+##teamcity[testSuiteFinished name='Second fixture']
+##teamcity[testSuiteStarted name='Third fixture']
+##teamcity[testStarted name='First test in third fixture']
+##teamcity[testFailed name='First test in third fixture' message='Test Failed' captureStandardOutput='true' details='||n- Error in beforeEach hook -|nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
+##teamcity[testSuiteFinished name='Third fixture']
+Test Run Completed:
+    End Time: Thu Jan 01 1970 02:15:25 GMT+0200 (IST)
+    Tests Passed: 4
+    Tests Failed: 2
+    Tests Skipped: 0
+    Warnings:
+     Was unable to take a screenshot due to an error.
+
+    ReferenceError: someVar is not defined
+    		Was unable to take a screenshot due to an error.
+
+    ReferenceError: someOtherVar is not defined
+    		Was unable to take screenshots because the screenshot directory is not specified. To specify it, use the "-s" or "--screenshots" command line option or the "screenshots" method of the test runner in case you are using API.
