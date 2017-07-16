@@ -1,5 +1,5 @@
 # testcafe-reporter-teamcity
-[![Build Status](https://travis-ci.org/soluto/testcafe-reporter-teamcity.svg)](https://travis-ci.org/Soluto/testcafe-reporter-teamcity)
+[![Build Status](https://travis-ci.org/Soluto/testcafe-reporter-teamcity.svg)](https://travis-ci.org/Soluto/testcafe-reporter-teamcity)
 
 This is the **teamcity** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
