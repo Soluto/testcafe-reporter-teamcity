@@ -32,6 +32,3 @@ testCafe
     .reporter('teamcity') // <-
     .run();
 ```
-
-## Author
-Soluto
