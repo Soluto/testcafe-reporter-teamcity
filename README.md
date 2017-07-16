@@ -31,4 +31,4 @@ testCafe
     .browsers('chrome')
     .reporter('teamcity') // <-
     .run();
-```
+``` 
