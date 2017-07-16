@@ -1,5 +1,6 @@
 # testcafe-reporter-teamcity
-[![Build Status](https://travis-ci.org/Soluto/testcafe-reporter-teamcity.svg)](https://travis-ci.org/Soluto/testcafe-reporter-teamcity)
+[![Build Status](https://travis-ci.org/Soluto/testcafe-reporter-teamcity.svg)](https://travis-ci.org/Soluto/testcafe-reporter-teamcity) 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 This is the **teamcity** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
