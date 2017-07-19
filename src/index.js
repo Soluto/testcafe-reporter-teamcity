@@ -60,7 +60,7 @@ export default function () {
         },
 
         renderErrors (errors) {
-            return errors.reduce((string, err) => string + '|n' + this.formatError(err, '') + '\n\n', "");
+            return errors.reduce((string, err) => string + '\n' + this.formatError(err, '') + '\n\n', "");
         },
     };
 }
