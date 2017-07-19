@@ -6,7 +6,7 @@ Starting test run!
 ##teamcity[testStarted name='First test in first fixture']
 ##teamcity[testFinished name='First test in first fixture' duration='74000']
 ##teamcity[testStarted name='Second test in first fixture']
-##teamcity[testFailed name='Second test in first fixture' message='Test Failed' captureStandardOutput='true' details='||nError on page "http://example.org":|n|nSome error|n|nBrowser: Chrome 41.0.2227 / Mac OS X 10.10.1|nScreenshot: /screenshots/1445437598847/errors|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n||nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
+##teamcity[testFailed name='Second test in first fixture' message='Test Failed' captureStandardOutput='true' details='|nError on page "http://example.org":|n|nSome error|n|nBrowser: Chrome 41.0.2227 / Mac OS X 10.10.1|nScreenshot: /screenshots/1445437598847/errors|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n|nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
 ##teamcity[testStarted name='Third test in first fixture']
 ##teamcity[testFinished name='Third test in first fixture' duration='74000']
 ##teamcity[testSuiteFinished name='First fixture']
@@ -20,7 +20,7 @@ Starting test run!
 ##teamcity[testSuiteFinished name='Second fixture']
 ##teamcity[testSuiteStarted name='Third fixture']
 ##teamcity[testStarted name='First test in third fixture']
-##teamcity[testFailed name='First test in third fixture' message='Test Failed' captureStandardOutput='true' details='||n- Error in beforeEach hook -|nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
+##teamcity[testFailed name='First test in third fixture' message='Test Failed' captureStandardOutput='true' details='|n- Error in beforeEach hook -|nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
 ##teamcity[testSuiteFinished name='Third fixture']
 Test Run Completed:
     End Time: Thu Jan 01 1970 00:15:25 GMT+0000 (UTC)
