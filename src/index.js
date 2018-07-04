@@ -39,7 +39,6 @@ export default function () {
                     '\' message=\'' + 'Test Failed' +
                     '\' captureStandardOutput=\'true\' ' +
                     'details=\'' + escape(this.renderErrors(testRunInfo.errs)) + '\']').newline();
-                return;
 
             }
             this.write('##teamcity[testFinished name=\'' + escape(name) + '\' duration=\'' + testRunInfo.durationMs + '\']').newline();
