@@ -1,5 +1,5 @@
 Starting test run!
-    Start Time: Thu Jan 01 1970 00:00:00 GMT+0000 (UTC)
+    Start Time: some-time
     User Agents: Chrome 41.0.2227 / Mac OS X 10.10.1,Firefox 47 / Mac OS X 10.10.1
     Test Count: 6
 ##teamcity[testSuiteStarted name='First fixture']
@@ -23,7 +23,7 @@ Starting test run!
 ##teamcity[testFailed name='First test in third fixture' message='Test Failed' captureStandardOutput='true' details='|n- Error in beforeEach hook -|nThe specified selector does not match any element in the DOM tree.|n|nBrowser: Firefox 47 / Mac OS X 10.10.1|n|n   1 ||var createCallsiteRecord = require (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n   at Object.<anonymous> (some-file:1:1)|n|n']
 ##teamcity[testSuiteFinished name='Third fixture']
 Test Run Completed:
-    End Time: Thu Jan 01 1970 00:15:25 GMT+0000 (UTC)
+    End Time: some-time
     Tests Passed: 4
     Tests Failed: 2
     Tests Skipped: 0
