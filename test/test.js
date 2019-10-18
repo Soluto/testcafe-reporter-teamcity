@@ -3,6 +3,8 @@ var normalizeNewline = require('normalize-newline');
 var read             = require('read-file-relative').readSync;
 var createReport     = require('./utils/create-report');
 
+const flowId = process.env.TEAMCITY_FLOWID = 123456;
+
 it('Should produce report without colors', function () {
     var report   = createReport(false);
     var expected = read('./data/report-without-colors');
@@ -13,7 +15,7 @@ it('Should produce report without colors', function () {
 });
 
 it('Should produce `testFinished` message for failed test', function () {
-    var finishedMessage = "##teamcity[testFinished name='Second test in first fixture' duration='74000']";
+    var finishedMessage = `##teamcity[testFinished name='Second test in first fixture' duration='74000' flowId='123456']`;
     var report          = createReport(false);
     report = normalizeNewline(report).trim();
     var containsFinishedMessage = report.indexOf(finishedMessage) !== -1;
